@@ -1,3 +1,5 @@
+console.log('This is your service-worker.js file!');
+
 const FILES_TO_CACHE = [
     '/',
     '/db.js',
@@ -9,13 +11,13 @@ const FILES_TO_CACHE = [
     '/icons/icon-512x512.png',
   ];
   
-  const PRECACHE = 'precache-v1';
-  const RUNTIME = 'runtime';
+  const STATIC_CACHE = 'static-cache-v1';
+  const RUNTIME_CACHE = 'runtime';
   
   self.addEventListener('install', (event) => {
     event.waitUntil(
       caches
-        .open(PRECACHE)
+        .open(STATIC_CACHE)
         .then((cache) => cache.addAll(FILES_TO_CACHE))
         .then(self.skipWaiting())
     );
@@ -23,7 +25,7 @@ const FILES_TO_CACHE = [
   
   // The activate handler takes care of cleaning up old caches.
   self.addEventListener('activate', (event) => {
-    const currentCaches = [PRECACHE, RUNTIME];
+    const currentCaches = [STATIC_CACHE, RUNTIME_CACHE];
     event.waitUntil(
       caches
         .keys()
@@ -49,7 +51,7 @@ const FILES_TO_CACHE = [
             return cachedResponse;
           }
   
-          return caches.open(RUNTIME).then((cache) => {
+          return caches.open(RUNTIME_CACHE).then((cache) => {
             return fetch(event.request).then((response) => {
               return cache.put(event.request, response.clone()).then(() => {
                 return response;
