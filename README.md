@@ -1,5 +1,4 @@
 # Budget-tracker
-Budget tracker app
 
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
   
@@ -14,7 +13,8 @@ Budget tracker app
   * [Questions](#questions)
 
   ## Project Description 
-  
+  Track your budget online and offline! 
+  Add expenses even when the user is offline. Expenses added while offline can still be found once the app is back online. 
 
 
   ## Installation Instructions
@@ -25,7 +25,6 @@ Budget tracker app
 
   ## Screenshots
   ![picture](public/img/Screenshot1.png)
-  ![picture](public/img/Screenshot2.png)
 
 
   ## Usage Guidelines
